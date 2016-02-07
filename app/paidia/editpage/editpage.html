@@ -1,0 +1,14 @@
+<div class="container">
+  <form #editPageForm="ngForm" *ngIf="page">
+    <div class="form-group">
+      <label for="name">Title</label>
+      <input type="text" class="form-control" required [(ngModel)]="page.title">
+    </div>
+    <div class="form-group">
+      <label for="alterEgo">Content</label>
+      <textarea class="form-control" rows="10" [(ngModel)]="page.content"></textarea>
+    </div>
+    <button type="submit" class="btn btn-default" (click)="savePage()">Save</button>
+    <button type="submit" class="btn btn-default" (click)="savePage({done: true})">Save and view</button>
+  </form>
+</div>

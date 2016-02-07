@@ -1,0 +1,16 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Author</th>
+      <th>At</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="#revision of revisions" (click)="openRevision(revision)">
+      <td>{{ revision.revision_id }}</td>
+      <td>{{ revision.author }}</td>
+      <td>{{ revision.created_at }}</td>
+    </tr>
+  </tbody>
+</table>
