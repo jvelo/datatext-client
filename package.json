@@ -1,9 +1,9 @@
 {
-  "name": "paidia-client",
+  "name": "datatext-client",
   "version": "0.0.1",
-  "description": "Angular 2 client for Piadia",
+  "description": "Angular 2 client for Datatext",
   "repository": {
-    "url": "https://github.com/jvelo/paidia-client"
+    "url": "https://github.com/jvelo/datatext-client"
   },
   "scripts": {
     "build.dev": "gulp build.dev",

@@ -3,7 +3,7 @@ import {bootstrap} from 'angular2/platform/browser';
 import {ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy} from 'angular2/router';
 import {AppCmp} from './app/components/app';
 import {HTTP_PROVIDERS} from 'angular2/http';
-import {PagesService} from './paidia/services/pages';
+import {PagesService} from './datatext/services/pages';
 import 'rxjs/Rx';
 
 bootstrap(AppCmp, [

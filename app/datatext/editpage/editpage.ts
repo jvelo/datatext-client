@@ -5,7 +5,7 @@ import {Page, PagesService} from '../services/pages';
 
 @Component({
   selector: 'editpage',
-  templateUrl: './paidia/editpage/editpage.html'
+  templateUrl: './datatext/editpage/editpage.html'
 })
 export class EditPage implements OnInit {
 

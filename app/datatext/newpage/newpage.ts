@@ -3,7 +3,7 @@ import {Page, PagesService} from '../services/pages';
 
 @Component({
   selector: 'newpage',
-  templateUrl: './paidia/newpage/newpage.html'
+  templateUrl: './datatext/newpage/newpage.html'
 })
 export class NewPage {
   pagesService: PagesService;

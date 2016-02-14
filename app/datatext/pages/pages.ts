@@ -5,7 +5,7 @@ import {Router} from 'angular2/router';
 
 @Component({
   selector: 'pages',
-  templateUrl: './paidia/pages/pages.html'
+  templateUrl: './datatext/pages/pages.html'
 })
 export class Pages {
   pages: Array<Page>;

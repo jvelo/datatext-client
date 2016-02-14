@@ -1,4 +1,13 @@
-import {Component, Directive, ElementRef, OnInit, Input, Inject, OnChanges, SimpleChange} from 'angular2/core';
+import {
+  Component,
+  Directive,
+  ElementRef,
+  OnInit,
+  Input,
+  Inject,
+  OnChanges,
+  SimpleChange
+} from 'angular2/core';
 import {RouteParams, Router} from 'angular2/router';
 
 import {PagesService} from '../services/pages';
@@ -16,19 +25,20 @@ export class HTMLContent implements OnChanges {
   }
   ngOnChanges(changes: {[propertyName: string]: SimpleChange}) {
     this.elementRef.nativeElement.innerHTML = this.content;
-    Array.prototype.forEach.call(this.elementRef.nativeElement.querySelectorAll('table'),
-    node => node.classList.add('table'));
+    const tables = this.elementRef.nativeElement.querySelectorAll('table');
+    Array.prototype.forEach.call(tables, node => node.classList.add('table'));
   }
 }
 
 @Component({
   selector: 'page',
-  templateUrl: './paidia/page/page.html',
+  templateUrl: './datatext/page/page.html',
   directives: [ HTMLContent ]
 })
 export class Page implements OnInit {
 
   page: PageModel;
+
   @Input() id;
 
   constructor(
@@ -44,11 +54,11 @@ export class Page implements OnInit {
                                             err => console.error(err));
   }
 
-  editPage(page: PageModel) {
-    this.router.navigate( ['EditPage', { id: page.id }] );
+  editPage() {
+    this.pagesService.editPage.next(this.page);
   }
 
-  openRevisions(page: PageModel) {
-    this.router.navigate( ['PageRevisions', { id: page.id }] );
+  openRevisions() {
+    this.router.navigate( ['PageRevisions', { id: this.page.id }] );
   }
 }

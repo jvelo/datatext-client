@@ -1,6 +1,5 @@
 import {Http} from 'angular2/http';
-import {Injectable} from 'angular2/core';
-import {provide} from 'angular2/core';
+import {Injectable, EventEmitter, provide} from 'angular2/core';
 
 export interface Page {
   title: String;
@@ -11,6 +10,8 @@ export interface Page {
 @Injectable()
 export class PagesService {
   http: Http;
+
+  editPage: EventEmitter<Page> = new EventEmitter();
 
   constructor(http: Http) {
     this.http = http;

@@ -5,7 +5,7 @@ import {Page, PagesService} from '../services/pages';
 
 @Component({
   selector: 'revisions',
-  templateUrl: './paidia/revisions/revisions.html'
+  templateUrl: './datatext/revisions/revisions.html'
 })
 export class Revisions implements OnInit {
 

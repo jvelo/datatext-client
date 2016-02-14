@@ -6,7 +6,7 @@ import {Page as PageModel} from '../services/pages';
 
 @Component({
   selector: 'page',
-  templateUrl: './paidia/revision/revision.html'
+  templateUrl: './datatext/revision/revision.html'
 })
 export class Revision implements OnInit {
 
