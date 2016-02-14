@@ -44,7 +44,7 @@ export class AppCmp implements OnInit {
        if (page === undefined || page === null) {
          this.editedPage = undefined;
        } else {
-         Object.assign(this.editedPage, page);
+         this.editedPage = page.clone();
        }
      });
   }

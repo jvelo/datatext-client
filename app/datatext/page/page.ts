@@ -50,7 +50,7 @@ export class Page implements OnInit {
 
   ngOnInit() {
     let id = this.id || this.routeParams.get('id');
-    this.pagesService.getPage(id).subscribe(result => this.page = result.page,
+    this.pagesService.getPage(id).subscribe(page => this.page = page,
                                             err => console.error(err));
   }
 

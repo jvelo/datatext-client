@@ -1,5 +1,5 @@
 import {Component} from 'angular2/core';
-import {Page, PagesService} from '../services/pages';
+import {Page, DefaultPage, PagesService} from '../services/pages';
 
 @Component({
   selector: 'newpage',
@@ -7,10 +7,10 @@ import {Page, PagesService} from '../services/pages';
 })
 export class NewPage {
   pagesService: PagesService;
-  model: Page = {
-    title: '',
-    content: ''
-  };
+  model: Page = new DefaultPage({
+    content: '',
+    title: ''
+  });
   submitted = false;
 
   constructor(pagesService: PagesService) {

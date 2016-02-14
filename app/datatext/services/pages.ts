@@ -1,10 +1,38 @@
 import {Http} from 'angular2/http';
 import {Injectable, EventEmitter, provide} from 'angular2/core';
+import {Observable} from 'rxjs';
 
 export interface Page {
-  title: String;
+  title: string;
   content: string;
   id?: string;
+  htmlContent?: string;
+
+  clone() : Page;
+}
+
+export class DefaultPage implements Page {
+
+  title:string;
+  content: string;
+  htmlContent: string;
+  id: string;
+
+  constructor(json: any) {
+    this.title = json.title;
+    this.content = json.content;
+    this.id = json.id;
+    this.htmlContent = json.html_content;
+  }
+
+  clone() {
+    return new DefaultPage({
+      title: this.title,
+      content: this.content,
+      id: this.id,
+      html_content: this.htmlContent
+    });
+  }
 }
 
 @Injectable()
@@ -26,8 +54,10 @@ export class PagesService {
     return this.http.get('http://localhost:8000/api/pages/').map(res => res.json());
   }
 
-  getPage(id: string) {
-    return this.http.get(`http://localhost:8000/api/pages/${id}`).map(res => res.json());
+  getPage(id: string): Observable<Page> {
+    return this.http.get(`http://localhost:8000/api/pages/${id}`)
+        .map(res => res.json())
+        .map(json => new DefaultPage(json.page));
   }
 
   updatePage(page: Page) {
