@@ -11,19 +11,19 @@
       <form #editPageForm="ngForm">
         <div class="form-group">
           <label for="name">Title</label>
-          <input type="text" class="form-control" required [(ngModel)]="page.title">
+          <input type="text" class="form-control" required [ngFormControl]="content" [(ngModel)]="page.title">
         </div>
         <div class="form-group">
           <label>Content</label>
-          <textarea class="form-control" rows="10" [(ngModel)]="page.content"></textarea>
+          <textarea class="form-control" rows="10" [ngFormControl]="content" [(ngModel)]="page.content"></textarea>
         </div>
         <button type="submit" class="btn btn-default" (click)="savePage()">Save</button>
         <button type="submit" class="btn btn-default" (click)="savePage({done: true})">Save and view</button>
       </form>
     </div>
     <div class="pane-right col-md-6">
-      <h1>{{ page.title }}</h1>
-      <div class="page-content" [htmlContent]="page.htmlContent"></div>
+      <h1 [textContent]="preview.title"></h1>
+      <div class="page-content" [htmlContent]="preview.htmlContent"></div>
     </div>
   </div>
 </div>

@@ -60,6 +60,12 @@ export class PagesService {
         .map(json => new DefaultPage(json.page));
   }
 
+  preview(page: Page) {
+    return this.http.post(`http://localhost:8000/api/pages/${page.id}/preview`, JSON.stringify(page))
+        .map(res => res.json())
+        .map(json => new DefaultPage(json.page));
+  }
+
   updatePage(page: Page) {
     return this.http.post(`http://localhost:8000/api/pages/${page.id}`, JSON.stringify(page))
         .map(res => res.json());
